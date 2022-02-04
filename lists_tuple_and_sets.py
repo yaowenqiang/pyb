@@ -70,3 +70,44 @@ print(course_str)
 new_list = course_str.split(', ')
 
 print(new_list)
+
+# tuples
+
+
+tuple_1 = ('History', 'Math', 'physic', 'compsci')
+tuple_2 = tuple_1
+
+print(tuple_1)
+print(tuple_2[0])
+
+# sets
+
+sets_1 = {'History', 'Math', 'physic', 'compsci'}
+
+print(sets_1)
+
+print('Math' in sets_1)
+
+cs_courses = {'History', 'Math', 'physic', 'compsci'}
+art_courses = {'History', 'Art', 'physic', 'compsci'}
+
+print(cs_courses.intersection(art_courses))
+print(cs_courses.difference(art_courses))
+print(cs_courses.union(art_courses))
+
+
+
+# empty list
+
+empty_list = []
+empty_list = list()
+
+# empty tuple
+
+empty_tuple = ()
+empty_tuple = tuple()
+
+# empty sets
+# empty_sets = {}, this is not a set , it's a dist
+empty_sets = set()
+
