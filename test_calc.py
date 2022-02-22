@@ -12,6 +12,12 @@ class testCalc(unittest.TestCase):
 		self.assertEqual(calc.add(-1,1), 0)
 		self.assertEqual(calc.add(-1,-1), -2)
 
+	def test_divide(self):
+		# self.assertRaises(ValueError,calc.divide,0,0)
+
+		with self.assertRaises(ValueError):
+			calc.divide(0,0)
+
 
 if __name__ == '__main__':
 	unittest.main()
