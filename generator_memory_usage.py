@@ -34,7 +34,6 @@ def people_generator(num_people):
 
 t1 = time.clock()
 people = people_generator(1000000)
-print(people)
 t2 = time.clock()
 
 
