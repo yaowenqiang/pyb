@@ -99,3 +99,22 @@ import datetime
 
 my_date = datetime.date(2022, 3, 15)
 print(Employee.is_workday(my_date))
+
+
+
+class Developer(Employee):
+	raise_amount = 1.10
+	def __init__(self, first, last, pay, program_language):
+		super().__init__(first, last, pay)
+		# Employee.__init__(self, first, last, pay)
+		self.program_language = program_language
+
+dev_1 = Developer('leo', 'li', 20000, 'python')
+dev_2 = Developer('bruce', 'pan', 12000, 'java')
+print(dev_1.email)
+print(dev_2.email)
+
+print(dev_1.program_language)
+print(dev_2.program_language)
+
+# print(help(Developer))
