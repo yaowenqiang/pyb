@@ -109,6 +109,27 @@ class Developer(Employee):
 		# Employee.__init__(self, first, last, pay)
 		self.program_language = program_language
 
+class Manager(Employee):
+	def __init__(self, first, last, pay, employees = None):
+		super().__init__(first, last, pay)
+		if employees is None:
+			self.employees = []
+		else:
+			self.employees = employees
+
+	def add_emp(self, emp):
+		if emp not in self.employees:
+			self.employees.append(emp)
+
+	def remove_emp(self, emp):
+		if emp in self.employees:
+			self.employees.remove(emp)
+
+	def print_employees(self):
+		for emp in self.employees:
+			print('-->', emp.fullname())
+
+
 dev_1 = Developer('leo', 'li', 20000, 'python')
 dev_2 = Developer('bruce', 'pan', 12000, 'java')
 print(dev_1.email)
@@ -118,3 +139,14 @@ print(dev_1.program_language)
 print(dev_2.program_language)
 
 # print(help(Developer))
+
+mgr_1 = Manager('Sue', 'Smith', 30000, [dev_1])
+print(mgr_1.email)
+mgr_1.add_emp(dev_2)
+mgr_1.print_employees()
+mgr_1.remove_emp(dev_2)
+mgr_1.print_employees()
+
+
+print(isinstance(mgr_1, Manager))
+print(issubclass(Manager, Employee))
