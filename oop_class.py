@@ -7,12 +7,29 @@ class Employee():
 		self.first = first
 		self.last = last
 		self.pay = pay
-		self.email = first + '.' + last + '@compay.com'
+		# self.email = first + '.' + last + '@compay.com'
 		Employee.num_of_emps += 1
 
 
+	@property
 	def fullname(self):
 		return '{} {}'.format(self.first, self.last)
+
+	@fullname.setter
+	def fullname(self, name):
+		first, last = name.split('.')
+		self.first = first
+		self.last = last
+
+	@fullname.deleter
+	def fullname(self):
+		print('delete name')
+		self.first = None
+		self.last = None
+
+	@property
+	def email(self):
+		return '{}.{}@email.com'.format(self.first, self.last)
 
 	def apply_raise(self):
 		# self.pay = int(self.pay * Employee.raise_amount)
@@ -38,13 +55,13 @@ class Employee():
 			
 
 	def __str__(self):
-		return '{} - {}'.format(self.fullname(), self.email)
+		return '{} - {}'.format(self.fullname, self.email)
 
 	def __add__(self, other):
 		return self.pay + other.pay
 
 	def __len__(self,):
-		return len(self.fullname())
+		return len(self.fullname)
 
 
 
@@ -73,9 +90,9 @@ print(len(emp_1))
 
 print(emp_1)
 print(emp_2)
-print(emp_1.fullname())
+print(emp_1.fullname)
 
-print(Employee.fullname(emp_2))
+# print(Employee.fullname(emp_2))
 
 
 emp_2.apply_raise()
@@ -148,7 +165,7 @@ class Manager(Employee):
 
 	def print_employees(self):
 		for emp in self.employees:
-			print('-->', emp.fullname())
+			print('-->', emp.fullname)
 
 
 dev_1 = Developer('leo', 'li', 20000, 'python')
