@@ -8,7 +8,9 @@ with open('sample.html') as html_file:
 
 # match = soupe.title.text
 
-match = soupe.find('div', class_='footer')
+# match = soupe.find('div', class_='footer')
+
+match = soupe.find_all('div', class_='footer')
 print(match)
 
 article = soupe.find('div', class_='article')
@@ -21,3 +23,11 @@ print(headline)
 # python -m pip install lxml
 # python -m pip install requests
 
+
+# source = requests.get('http://coreyms.como').text
+source = requests.get('http://localhost').text
+
+print(source)
+
+soap2 = BeautifulSoup(source, 'lxml')
+print(soap2.prettify())
